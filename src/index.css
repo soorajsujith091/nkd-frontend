@@ -1,0 +1,318 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+:root {
+  --bg-dark: #ffffff;
+  --bg-offwhite: #f0efef;
+  --accent-purple: #813f98;
+  --accent-deep-purple: #4c2263;
+  --text-white: #ffffff;
+  --text-dark: #1e1e1e;
+}
+
+.section-container {
+  padding-left: 6rem;
+  padding-right: 6rem;
+}
+@media (max-width: 1024px) {
+  .section-container {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+}
+@media (max-width: 768px) {
+  .section-container {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 85%; /* Reduces global text size */
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--bg-dark);
+  color: var(--text-white);
+  overflow-x: hidden;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+/* UI Elements */
+.pill-nav {
+  background: var(--bg-white);
+  border-radius: 40px;
+  padding: 15px 40px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  display: flex;
+  gap: 30px;
+  align-items: center;
+}
+
+.pill-nav a {
+  text-decoration: none;
+  color: var(--text-dark);
+  font-weight: 600;
+  font-size: 1.2rem;
+  transition: color 0.3s;
+}
+
+.pill-nav a:hover {
+  color: var(--accent-magenta);
+}
+
+.btn-lime {
+  background-color: var(--accent-lime);
+  color: var(--text-dark);
+  font-weight: 800;
+  font-size: 0.85rem;
+  padding: 15px 30px;
+  border-radius: 30px;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  transition: transform 0.2s;
+}
+.btn-lime:hover {
+  transform: scale(1.05);
+}
+
+.btn-glass {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  color: var(--text-light);
+  font-weight: 600;
+  font-size: 0.85rem;
+  padding: 15px 30px;
+  border-radius: 30px;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  transition: all 0.3s;
+}
+.btn-glass:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* Class Card with Cutout Design */
+.class-card {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  transition: transform 0.3s;
+}
+
+.class-card:hover {
+  transform: translateY(-10px);
+}
+
+.class-card-bg {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-size: cover;
+  background-position: center;
+  z-index: 1;
+}
+
+.class-card-overlay {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(to bottom, rgba(0,0,0,0) 50%, rgba(0,0,0,0.5) 100%);
+  z-index: 2;
+}
+
+.class-badge {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background: var(--bg-white);
+  color: var(--text-dark);
+  font-weight: 800;
+  padding: 15px 25px;
+  border-top-right-radius: 20px;
+  z-index: 3;
+  font-size: 1.1rem;
+}
+
+/* To create the curved cutout effect from the image */
+.class-badge::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  background-color: transparent;
+  border-bottom-left-radius: 20px;
+  box-shadow: 0 10px 0 0 var(--bg-white);
+}
+
+.class-badge::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 100%;
+  width: 20px;
+  height: 20px;
+  background-color: transparent;
+  border-bottom-left-radius: 20px;
+  box-shadow: -10px 0 0 0 var(--bg-white);
+}
+
+.class-icon {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: var(--accent-magenta);
+  color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 3;
+  font-weight: bold;
+}
+
+/* Nav Bar Structure */
+.main-nav {
+  position: absolute;
+  top: 30px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 40px;
+  z-index: 200;
+}
+
+.nav-phone-container {
+  display: block;
+}
+
+.hamburger-btn {
+  display: none;
+  background: var(--accent-magenta);
+  color: white;
+  border: none;
+  font-size: 1.5rem;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 201;
+}
+
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.95);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  z-index: 150;
+}
+
+.mobile-menu a {
+  color: white;
+  font-size: 2rem;
+  font-weight: 800;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.mobile-menu a:hover {
+  color: var(--accent-lime);
+}
+
+/* Responsive Media Queries */
+@media (max-width: 900px) {
+  .desktop-nav {
+    display: none !important;
+  }
+  
+  .hamburger-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .nav-phone-container {
+    display: none;
+  }
+
+  /* Adjust typography sizing for mobile */
+  html {
+    font-size: 75%; /* further shrink down on mobile */
+  }
+
+  h1 {
+    font-size: 3.5rem !important;
+  }
+  
+  h2 {
+    font-size: 2.5rem !important;
+  }
+
+  /* Padding adjustments */
+  section {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+  
+  .main-nav {
+    padding: 0 20px;
+  }
+}
+
+@media (max-width: 600px) {
+  h1 {
+    font-size: 2.8rem !important;
+  }
+  
+  h2 {
+    font-size: 2.2rem !important;
+  }
+  
+  .pill-nav {
+    padding: 10px 20px;
+    gap: 15px;
+  }
+  
+  /* Make all flex grids stack vertically */
+  .grid-to-stack {
+    display: flex;
+    flex-direction: column;
+  }
+}
