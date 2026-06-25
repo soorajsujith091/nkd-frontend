@@ -43,6 +43,22 @@ export default function Home() {
     { q: "Do you offer private lessons?", a: "Absolutely. We offer private sessions for individuals, couples, and small groups." }
   ];
 
+  const team = [
+    { id: 1, name: "Nidhi Kumar", role: "Founder & CEO", bio: "A woman entrepreneur building her dream in the UAE. Content creator, dance teacher, choreographer, business owner, and creative director with 4M+ followers.", image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=600&q=80" },
+    { id: 2, name: "Meerra Jjairaj", role: "Lead Instructor | Semi-Classical", bio: "Brings grace and expression to every class with expertise in semi-classical dance. Focuses on technique, storytelling, and building confidence.", image: "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=600&q=80" },
+    { id: 3, name: "Jhalak Sharma", role: "Lead Instructor | Hip-Hop", bio: "Known for dynamic energy and powerful choreography. Inspires students to explore creativity and performance with confidence.", image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80" },
+    { id: 4, name: "Khadija Fakhruddin", role: "Lead Instructor | Kids & Bhangra", bio: "Leads kids and Bhangra batches with enthusiasm and positivity. Creates a fun and supportive environment.", image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=600&q=80" },
+    { id: 5, name: "Dev", role: "Lead Instructor", bio: "Brings energy and passion to every class.", image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=600&q=80" },
+    { id: 6, name: "Sarrah Hakim", role: "Studio Manager", bio: "Oversees day-to-day operations ensuring a seamless and welcoming experience for every student.", image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=600&q=80" },
+    { id: 7, name: "Khushi Popat", role: "Social Media Manager", bio: "Leads creative and digital presence across all social platforms.", image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=600&q=80" },
+  ];
+
+  const cardThemes = [
+    { bg: "bg-[#813f98]", text: "text-white", subtext: "text-white/80", fill: "fill-[#813f98]" },
+    { bg: "bg-white", text: "text-[#1e1e1e]", subtext: "text-gray-600", fill: "fill-white" },
+    { bg: "bg-[#1e1e1e]", text: "text-white", subtext: "text-gray-400", fill: "fill-[#1e1e1e]" },
+  ];
+
   return (
     <div className="bg-nkd-dark min-h-screen text-nkd-white overflow-hidden pb-20">
       
@@ -224,6 +240,78 @@ export default function Home() {
               <p className="text-[13px] font-medium text-gray-400 max-w-[200px] leading-relaxed mx-auto">{service.desc}</p>
             </motion.div>
           ))}
+        </div>
+      </section>
+
+      {/* 5.5 Meet the Team Carousel */}
+      <section className="py-16 bg-[#f0efef] px-6 md:px-12 lg:px-24 mx-4 md:mx-8 lg:mx-12 rounded-[2.5rem] md:rounded-[3rem] my-10 overflow-hidden">
+        <div className="max-w-[1920px] mx-auto">
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-10 gap-4">
+            <motion.h2 
+              className="text-3xl md:text-5xl font-bold uppercase text-[#1e1e1e]"
+              style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              MEET THE <br className="hidden md:block" /><span className="text-[#813f98]">TEAM</span>
+            </motion.h2>
+            <p className="text-gray-500 max-w-sm text-sm font-body">Our talented instructors and staff are here to help you express yourself and achieve your dance goals.</p>
+          </div>
+
+          <div className="flex overflow-x-auto pb-10 gap-6 md:gap-8 snap-x hide-scrollbar">
+            {team.map((member, idx) => {
+              const theme = cardThemes[idx % cardThemes.length];
+              return (
+                <motion.div
+                  key={member.id}
+                  className="relative min-w-[260px] w-[260px] md:min-w-[320px] md:w-[320px] h-[450px] md:h-[500px] rounded-3xl overflow-hidden snap-start shrink-0 group flex flex-col shadow-xl cursor-pointer"
+                  initial={{ opacity: 0, x: 50 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: idx * 0.1 }}
+                >
+                  {/* Top Image Section */}
+                  <div className="relative h-[65%] w-full overflow-hidden bg-gray-200">
+                    <img 
+                      src={member.image} 
+                      alt={`NKD Studios team member ${member.name}`}
+                      className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700"
+                    />
+                    {/* SVG Curve Divider */}
+                    <svg viewBox="0 0 100 50" preserveAspectRatio="none" className={`absolute bottom-0 left-0 w-full h-12 md:h-16 z-10 ${theme.fill}`}>
+                      <path d="M0,50 L0,20 C30,20 60,0 100,0 L100,50 Z" />
+                    </svg>
+                  </div>
+
+                  {/* Bottom Text Section */}
+                  <div className={`relative h-[35%] w-full ${theme.bg} p-6 flex flex-col justify-between z-20`}>
+                    <div>
+                      <h3 className={`text-2xl md:text-3xl font-bold ${theme.text} mb-1 leading-none uppercase tracking-tight`} style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}>
+                        {member.name.split(' ').map((n, i) => (
+                          <span key={i} className="block">{n}</span>
+                        ))}
+                      </h3>
+                      <p className={`${theme.subtext} text-sm mt-3 font-medium`} style={{ fontFamily: 'General Sans, sans-serif' }}>{member.role}</p>
+                    </div>
+                    
+                    {/* Decorative abstract logo shape */}
+                    <div className="absolute bottom-6 right-6 opacity-30">
+                      <svg width="40" height="40" viewBox="0 0 100 100" className={theme.text}>
+                        <path fill="currentColor" d="M70,30 C70,13.431 56.569,0 40,0 C23.431,0 10,13.431 10,30 C10,37.337 12.631,44.062 17.025,49.256 C8.411,54.402 2.668,64.249 3.018,75.459 C3.606,94.341 19.349,109.28 38.231,108.692 C46.126,108.446 53.376,105.109 58.744,100 C63.938,104.394 70.663,107.025 78,107.025 C94.569,107.025 108,93.594 108,77.025 C108,60.456 94.569,47.025 78,47.025 C75.253,47.025 72.593,47.394 70.088,48.077 C70.03,42.133 70,36.111 70,30 Z" />
+                      </svg>
+                    </div>
+                  </div>
+                </motion.div>
+              );
+            })}
+          </div>
+          
+          <div className="flex justify-end gap-3 mt-4 pr-4">
+            <button className="w-12 h-12 rounded-full border-2 border-[#1e1e1e] flex items-center justify-center text-[#1e1e1e] hover:bg-[#1e1e1e] hover:text-white transition-colors bg-transparent"><svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7"></path></svg></button>
+            <button className="w-12 h-12 rounded-full border-2 border-[#1e1e1e] flex items-center justify-center text-[#1e1e1e] hover:bg-[#1e1e1e] hover:text-white transition-colors bg-transparent"><svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"></path></svg></button>
+          </div>
         </div>
       </section>
 
