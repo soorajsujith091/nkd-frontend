@@ -52,6 +52,7 @@ function AppContent() {
               <Link to="/services" className="text-gray-800 hover:text-nkd-purple font-medium transition-colors text-base">Services</Link>
               <Link to="/gallery" className="text-gray-800 hover:text-nkd-purple font-medium transition-colors text-base">Gallery</Link>
               <Link to="/about" className="text-gray-800 hover:text-nkd-purple font-medium transition-colors text-base">About Us</Link>
+              <Link to="/contact" className="text-gray-800 hover:text-nkd-purple font-medium transition-colors text-base">Contact Us</Link>
             </nav>
 
             <div className="hidden lg:flex items-center gap-4 shrink-0">
@@ -139,7 +140,7 @@ function AppContent() {
         </AnimatePresence>
 
         {/* Main Content */}
-        <main className={`flex-grow ${location.pathname === '/' ? '' : 'pt-[80px]'}`}>
+        <main className={`flex-grow ${location.pathname === '/' || location.pathname === '/contact' ? '' : 'pt-[80px]'}`}>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
@@ -168,6 +169,7 @@ function AppContent() {
               <Link to="/classes" className="text-gray-600 hover:text-nkd-purple transition-colors w-fit">Classes</Link>
               <Link to="/services" className="text-gray-600 hover:text-nkd-purple transition-colors w-fit">Services</Link>
               <Link to="/gallery" className="text-gray-600 hover:text-nkd-purple transition-colors w-fit">Gallery</Link>
+              <Link to="/contact" className="text-gray-600 hover:text-nkd-purple transition-colors w-fit">Contact Us</Link>
             </div>
             
             <div className="flex flex-col gap-4">

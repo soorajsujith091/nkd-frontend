@@ -1,31 +1,25 @@
 import { motion } from 'framer-motion';
+import { useRef } from 'react';
+import HomeTeamCard, { cardThemes } from '../components/ui/HomeTeamCard';
 
 export default function About() {
-  const team = [
-    { 
-      name: 'Nidhi Kumar', 
-      role: 'Founder & Head Choreographer', 
-      desc: 'Nidhi wears many hats - content creator, dance teacher, choreographer, business owner, and creative director. Through dedication and the power of social media, she transformed her vision into a thriving community.',
-      img: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=800&q=80' 
-    },
-    { 
-      name: 'Meerra', 
-      role: 'Lead Instructor | Semi-Classical', 
-      desc: 'Meerra brings grace and expression to every class. Her teaching focuses on technique, storytelling, and building confidence through movement.',
-      img: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80' 
-    },
-    { 
-      name: 'Jhalak', 
-      role: 'Lead Instructor | Hip-Hop', 
-      desc: 'Known for dynamic energy and powerful choreography, Jhalak specializes in hip-hop styles, inspiring creativity and performance.',
-      img: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=800&q=80' 
-    },
-    { 
-      name: 'Khadija', 
-      role: 'Lead Instructor | Kids & Bhangra', 
-      desc: 'Khadija leads our kids’ batches with enthusiasm and positivity. Her vibrant style creates a supportive environment for growth.',
-      img: 'https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?auto=format&fit=crop&w=800&q=80' 
+  const teamScrollRef = useRef(null);
+  
+  const scrollCarousel = (direction) => {
+    if (teamScrollRef.current) {
+      const scrollAmount = direction === 'left' ? -350 : 350;
+      teamScrollRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
     }
+  };
+
+  const team = [
+    { id: 1, name: "Nidhi Kumar", role: "Founder & CEO", bio: "A woman entrepreneur building her dream in the UAE. Content creator, dance teacher, choreographer, business owner, and creative director with 4M+ followers. She transformed her passion into one of Dubai's most vibrant dance and creative spaces.", image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=600&q=80" },
+    { id: 2, name: "Meerra Jjairaj", role: "Lead Instructor | Semi-Classical Specialist", bio: "Brings grace and expression to every class with expertise in semi-classical dance. Focuses on technique, storytelling, and helping students build confidence through movement.", image: "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=600&q=80" },
+    { id: 3, name: "Jhalak Sharma", role: "Lead Instructor | Hip-Hop Specialist", bio: "Known for dynamic energy and powerful choreography. Inspires students to explore creativity and performance with confidence.", image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80" },
+    { id: 4, name: "Khadija Fakhruddin", role: "Lead Instructor | Kids & Bhangra", bio: "Leads kids and Bhangra batches with enthusiasm and positivity. Creates a fun and supportive environment where dancers can learn and grow.", image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=600&q=80" },
+    { id: 5, name: "Dev", role: "Lead Instructor", bio: "Brings energy and passion to every class at NKD Studios.", image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=600&q=80" },
+    { id: 6, name: "Sarrah Hakim", role: "Studio Manager", bio: "Oversees day-to-day operations ensuring a seamless and welcoming experience for every student and family.", image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=600&q=80" },
+    { id: 7, name: "Khushi Popat", role: "Social Media Manager", bio: "Leads creative and digital presence across all social platforms bringing the studio energy and vision to life.", image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=600&q=80" },
   ];
 
   const milestones = [
@@ -124,30 +118,34 @@ export default function About() {
         </div>
       </section>
 
-      {/* Meet the Team */}
-      <section className="py-24 section-container max-w-[1920px] mx-auto">
-        <h2 className="text-lg md:text-3xl font-heading font-bold uppercase text-center mb-16">Meet The <span className="text-nkd-purple">Team</span></h2>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {team.map((member, idx) => (
-            <motion.div 
-              key={idx}
+      {/* Meet the Team Carousel */}
+      <section className="py-16 bg-[#f0efef] px-6 md:px-12 lg:px-24 mx-4 md:mx-8 lg:mx-12 rounded-[2.5rem] md:rounded-[3rem] my-10 overflow-hidden">
+        <div className="max-w-[1920px] mx-auto">
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-10 gap-4">
+            <motion.h2 
+              className="text-3xl md:text-5xl font-bold uppercase text-[#1e1e1e]"
+              style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: idx * 0.1 }}
-              className="bg-nkd-offwhite rounded-3xl overflow-hidden group border border-gray-200 shadow-sm hover:shadow-md transition-shadow"
+              transition={{ duration: 0.6 }}
             >
-              <div className="h-80 overflow-hidden relative">
-                <img src={member.img} alt={member.name} className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" />
-              </div>
-              <div className="p-8">
-                <h3 className="text-lg font-bold font-heading uppercase text-nkd-white mb-1">{member.name}</h3>
-                <p className="text-nkd-purple font-bold text-sm uppercase tracking-wider mb-4">{member.role}</p>
-                <p className="text-gray-600 text-sm leading-relaxed">{member.desc}</p>
-              </div>
-            </motion.div>
-          ))}
+              MEET THE <br className="hidden md:block" /><span className="text-[#813f98]">TEAM</span>
+            </motion.h2>
+            <p className="text-gray-500 max-w-sm text-sm font-body">Our talented instructors and staff are here to help you express yourself and achieve your dance goals.</p>
+          </div>
+
+          <div ref={teamScrollRef} className="flex overflow-x-auto pb-10 gap-6 md:gap-8 snap-x hide-scrollbar">
+            {team.map((member, idx) => {
+              const theme = cardThemes[idx % cardThemes.length];
+              return <HomeTeamCard key={member.id} member={member} theme={theme} idx={idx} />;
+            })}
+          </div>
+          
+          <div className="flex justify-end gap-3 mt-4 pr-4">
+            <button onClick={() => scrollCarousel('left')} className="w-12 h-12 rounded-full border-2 border-[#1e1e1e] flex items-center justify-center text-[#1e1e1e] hover:bg-[#1e1e1e] hover:text-white transition-colors bg-transparent"><svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7"></path></svg></button>
+            <button onClick={() => scrollCarousel('right')} className="w-12 h-12 rounded-full border-2 border-[#1e1e1e] flex items-center justify-center text-[#1e1e1e] hover:bg-[#1e1e1e] hover:text-white transition-colors bg-transparent"><svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"></path></svg></button>
+          </div>
         </div>
       </section>
 
