@@ -8,6 +8,7 @@ import About from './pages/About';
 import Services from './pages/Services';
 import Gallery from './pages/Gallery';
 import Checkout from './pages/Checkout';
+import Policies from './pages/Policies';
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -140,7 +141,7 @@ function AppContent() {
         </AnimatePresence>
 
         {/* Main Content */}
-        <main className={`flex-grow ${location.pathname === '/' || location.pathname === '/contact' ? '' : 'pt-[80px]'}`}>
+        <main className="flex-grow">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
@@ -149,46 +150,54 @@ function AppContent() {
             <Route path="/checkout/:classId" element={<Checkout />} />
             <Route path="/gallery" element={<Gallery />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/policies/:policyId?" element={<Policies />} />
             <Route path="*" element={<div className="pt-32 text-center text-2xl font-heading font-bold h-[60vh]">Page Not Found</div>} />
           </Routes>
         </main>
 
         {/* Global Footer */}
-        <footer className="bg-nkd-dark border-t border-gray-200 py-16 mt-20">
-          <div className="max-w-[1920px] mx-auto section-container grid grid-cols-1 md:grid-cols-3 gap-12 text-nkd-white">
-            <div>
+        <footer className="bg-white border-t border-gray-200 py-16 mt-20">
+          <div className="max-w-7xl mx-auto px-6 md:px-12 flex flex-col md:flex-row justify-between gap-12 md:gap-8">
+            <div className="md:max-w-xs">
               <Link to="/" className="inline-block mb-4">
                 <img src="/logo.png" alt="NKD Studios Logo" className="h-12 md:h-16 w-auto object-contain" />
               </Link>
-              <p className="text-gray-600">The UAE's first and largest dance & content creation studio. Nach Ke Dikha!</p>
+              <p className="text-gray-500 font-light text-sm">The UAE's first and largest dance & content creation studio. Nach Ke Dikha!</p>
             </div>
             
-            <div className="flex flex-col gap-4">
-              <h3 className="font-heading font-bold text-lg mb-2 uppercase text-nkd-white">Quick Links</h3>
-              <Link to="/about" className="text-gray-600 hover:text-nkd-purple transition-colors w-fit">About Us</Link>
-              <Link to="/classes" className="text-gray-600 hover:text-nkd-purple transition-colors w-fit">Classes</Link>
-              <Link to="/services" className="text-gray-600 hover:text-nkd-purple transition-colors w-fit">Services</Link>
-              <Link to="/gallery" className="text-gray-600 hover:text-nkd-purple transition-colors w-fit">Gallery</Link>
-              <Link to="/contact" className="text-gray-600 hover:text-nkd-purple transition-colors w-fit">Contact Us</Link>
+            <div className="flex flex-col gap-3">
+              <h3 className="font-heading font-medium text-lg mb-2 text-gray-900 uppercase">Quick Links</h3>
+              <Link to="/about" className="text-gray-500 font-light hover:text-nkd-purple transition-colors w-fit text-sm">About Us</Link>
+              <Link to="/classes" className="text-gray-500 font-light hover:text-nkd-purple transition-colors w-fit text-sm">Classes</Link>
+              <Link to="/services" className="text-gray-500 font-light hover:text-nkd-purple transition-colors w-fit text-sm">Services</Link>
+              <Link to="/gallery" className="text-gray-500 font-light hover:text-nkd-purple transition-colors w-fit text-sm">Gallery</Link>
+              <Link to="/contact" className="text-gray-500 font-light hover:text-nkd-purple transition-colors w-fit text-sm">Contact Us</Link>
+            </div>
+
+            <div className="flex flex-col gap-3">
+              <h3 className="font-heading font-medium text-lg mb-2 text-gray-900 uppercase">Policies</h3>
+              <Link to="/policies/privacy" className="text-gray-500 font-light hover:text-nkd-purple transition-colors w-fit text-sm">Privacy Policy</Link>
+              <Link to="/policies/terms" className="text-gray-500 font-light hover:text-nkd-purple transition-colors w-fit text-sm">Terms of Service</Link>
+              <Link to="/policies/refunds" className="text-gray-500 font-light hover:text-nkd-purple transition-colors w-fit text-sm">Refund Policy</Link>
             </div>
             
-            <div className="flex flex-col gap-4">
-              <h3 className="font-heading font-bold text-lg mb-2 uppercase text-nkd-white">Connect</h3>
-              <div className="flex gap-4">
-                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-nkd-offwhite text-nkd-white flex items-center justify-center hover:bg-nkd-purple hover:text-[#ffffff] transition-colors">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+            <div className="flex flex-col gap-3">
+              <h3 className="font-heading font-medium text-lg mb-2 text-gray-900 uppercase">Connect</h3>
+              <div className="flex gap-4 mb-2">
+                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-gray-50 text-gray-600 flex items-center justify-center hover:bg-nkd-purple hover:text-white transition-colors border border-gray-100">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
                 </a>
-                <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-nkd-offwhite text-nkd-white flex items-center justify-center hover:bg-nkd-purple hover:text-[#ffffff] transition-colors">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg>
+                <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-gray-50 text-gray-600 flex items-center justify-center hover:bg-nkd-purple hover:text-white transition-colors border border-gray-100">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg>
                 </a>
-                <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-nkd-offwhite text-nkd-white flex items-center justify-center hover:bg-nkd-purple hover:text-[#ffffff] transition-colors">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"></path></svg>
+                <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-gray-50 text-gray-600 flex items-center justify-center hover:bg-nkd-purple hover:text-white transition-colors border border-gray-100">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"></path></svg>
                 </a>
               </div>
-              <a href="tel:+971585991012" className="mt-2 text-gray-600 hover:text-nkd-purple">+971 58 599 1012</a>
+              <a href="tel:+971585991012" className="text-gray-500 font-light hover:text-nkd-purple text-sm">+971 58 599 1012</a>
             </div>
           </div>
-          <div className="max-w-[1920px] mx-auto section-container mt-12 pt-8 border-t border-gray-200 text-center text-gray-500 text-sm">
+          <div className="max-w-7xl mx-auto px-6 md:px-12 mt-12 pt-8 border-t border-gray-100 text-center text-gray-400 text-xs font-light tracking-wide">
             <p>&copy; {new Date().getFullYear()} NKD Studios. All Rights Reserved.</p>
           </div>
         </footer>

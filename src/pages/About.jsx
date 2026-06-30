@@ -1,150 +1,134 @@
 import { motion } from 'framer-motion';
-import { useRef } from 'react';
-import HomeTeamCard, { cardThemes } from '../components/ui/HomeTeamCard';
 
 export default function About() {
-  const teamScrollRef = useRef(null);
-  
-  const scrollCarousel = (direction) => {
-    if (teamScrollRef.current) {
-      const scrollAmount = direction === 'left' ? -350 : 350;
-      teamScrollRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-    }
-  };
-
   const team = [
-    { id: 1, name: "Nidhi Kumar", role: "Founder & CEO", bio: "A woman entrepreneur building her dream in the UAE. Content creator, dance teacher, choreographer, business owner, and creative director with 4M+ followers. She transformed her passion into one of Dubai's most vibrant dance and creative spaces.", image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=600&q=80" },
-    { id: 2, name: "Meerra Jjairaj", role: "Lead Instructor | Semi-Classical Specialist", bio: "Brings grace and expression to every class with expertise in semi-classical dance. Focuses on technique, storytelling, and helping students build confidence through movement.", image: "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=600&q=80" },
-    { id: 3, name: "Jhalak Sharma", role: "Lead Instructor | Hip-Hop Specialist", bio: "Known for dynamic energy and powerful choreography. Inspires students to explore creativity and performance with confidence.", image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80" },
-    { id: 4, name: "Khadija Fakhruddin", role: "Lead Instructor | Kids & Bhangra", bio: "Leads kids and Bhangra batches with enthusiasm and positivity. Creates a fun and supportive environment where dancers can learn and grow.", image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=600&q=80" },
-    { id: 5, name: "Dev", role: "Lead Instructor", bio: "Brings energy and passion to every class at NKD Studios.", image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=600&q=80" },
-    { id: 6, name: "Sarrah Hakim", role: "Studio Manager", bio: "Oversees day-to-day operations ensuring a seamless and welcoming experience for every student and family.", image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=600&q=80" },
-    { id: 7, name: "Khushi Popat", role: "Social Media Manager", bio: "Leads creative and digital presence across all social platforms bringing the studio energy and vision to life.", image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=600&q=80" },
-  ];
-
-  const milestones = [
-    { year: "2021", title: "The Beginning", desc: "NKD Studios was officially founded by Nidhi Kumar with just a small group of passionate dancers." },
-    { year: "2022", title: "Growing Community", desc: "Expanded our offerings to include kids classes, hip-hop, and semi-classical batches as our student base tripled." },
-    { year: "2023", title: "100+ Events", desc: "Crossed the milestone of choreographing over 100 weddings and corporate events across the UAE." },
-    { year: "2024", title: "The Next Level", desc: "Relocated to our current premium boutique studio space to accommodate our massive community of 50k+ students." }
+    { name: "Nidhi Kumar", role: "Founder & Creative Director", bio: "Nidhi Kumar is the founder and driving force behind NKD Studios. What began as a passion for dance and a small community she started over 10 years ago has grown into one of Dubai’s most vibrant dance and creative spaces. A woman entrepreneur building her dream in the UAE, Nidhi wears many hats - content creator, dance teacher, choreographer, business owner, and creative director.", image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=800&q=80" },
+    { name: "Meerra", role: "Lead Instructor | Semi-Classical Specialist", bio: "Meerra brings grace and expression to every class with her expertise in semi-classical dance. Her teaching style focuses on technique, storytelling, and helping students build confidence through movement.", image: "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=800&q=80" },
+    { name: "Jhalak", role: "Lead Instructor | Hip-Hop Specialist", bio: "Known for her dynamic energy and powerful choreography, Jhalak specializes in hip-hop styles. She inspires students to explore creativity and performance with confidence.", image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80" },
+    { name: "Khadija", role: "Lead Instructor | Kids & Bhangra", bio: "Khadija leads our kids’ and Bhangra batches with enthusiasm and positivity. Her vibrant teaching style creates a fun and supportive environment where dancers can learn and grow.", image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=800&q=80" },
+    { name: "Sarah", role: "Studio Manager", bio: "Sarah oversees the day-to-day operations of NKD Studios, ensuring everything runs smoothly. She is dedicated to creating a seamless and welcoming experience for every student and family.", image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=80" },
+    { name: "Riya", role: "Social Media Manager", bio: "Riya leads the creative and digital presence of NKD Studios. From content creation to community engagement, she brings the studio’s energy and vision to life across all social platforms.", image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=800&q=80" },
   ];
 
   return (
-    <div className="bg-nkd-dark min-h-screen text-nkd-white pb-24">
+    <div className="bg-white min-h-screen text-gray-900 font-body overflow-hidden">
       
-      {/* Hero Section */}
-      <section className="bg-nkd-dark pt-20 pb-16 section-container text-center border-b border-gray-200">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-        >
-          <h1 className="text-lg md:text-5xl font-heading font-bold uppercase mb-4">About <span className="text-nkd-purple">Us</span></h1>
-          <div className="w-24 h-1 bg-nkd-purple mx-auto"></div>
-        </motion.div>
+      {/* 1. Hero Section */}
+      <section className="relative pt-32 pb-24 px-6 md:px-12 mb-16 flex flex-col items-center justify-center text-center overflow-hidden min-h-[40vh]">
+        <div className="absolute inset-0 z-0">
+          <div className="absolute inset-0 bg-black/60 z-10"></div>
+          <img 
+            src="https://images.unsplash.com/photo-1518609878373-06d740f60d8b?auto=format&fit=crop&w=1920&q=80" 
+            alt="About Hero" 
+            className="w-full h-full object-cover grayscale mix-blend-overlay"
+          />
+        </div>
+        <div className="relative z-20 max-w-4xl mx-auto">
+          <h1 className="text-4xl md:text-6xl font-heading font-light text-white mb-6 uppercase tracking-tight">
+            About <span className="font-semibold text-nkd-purple">NKD Studios</span>
+          </h1>
+          <p className="text-lg md:text-xl text-gray-200 font-light leading-relaxed">
+            Founded in 2021 by Nidhi Kumar, NKD Studios is one of Dubai’s fastest-growing dance and content creation spaces, built on a passion for movement, creativity, and community.
+          </p>
+        </div>
       </section>
 
-      {/* Story & Vision */}
-      <section className="max-w-[1920px] mx-auto section-container mt-16 mb-24">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          <motion.div
+      {/* 2. Story Grid */}
+      <section className="py-12 px-6 md:px-12 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-32">
+          <motion.div 
             initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="rounded-3xl overflow-hidden h-[600px] shadow-sm bg-gray-50"
+          >
+            <img src="https://images.unsplash.com/photo-1547153760-18fc86324498?auto=format&fit=crop&w=1200&q=80" alt="Studio Community" className="w-full h-full object-cover grayscale mix-blend-multiply opacity-90" />
+          </motion.div>
+          
+          <motion.div 
+            initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
             className="space-y-8"
           >
-            <h2 className="text-lg md:text-3xl font-heading font-bold uppercase text-nkd-purple">Our Story</h2>
-            <p className="text-gray-600 text-lg leading-relaxed">
-              Founded in 2021 by Nidhi Kumar, NKD Studios is Dubai’s fastest-growing premium boutique dance and content creation space, built on a passion for movement, creativity, and community.
-            </p>
-            <p className="text-gray-600 text-lg leading-relaxed">
-              Beyond the classroom, we bring dance to life across the UAE through spectacular events, wedding choreographies, sangeets, corporate shows, stage performances, and private celebrations. We create unforgettable experiences that blend entertainment, creativity, and storytelling.
-            </p>
-            <div className="bg-nkd-offwhite p-8 rounded-3xl border-l-4 border-nkd-purple border border-gray-200 shadow-sm">
-              <h3 className="text-lg font-bold font-heading uppercase text-nkd-white mb-4">Our Vision</h3>
-              <p className="text-gray-600 italic">
-                "To become the biggest and most vibrant dance and creative community in the UAE, connecting artists and dance forms from around the world under one roof."
+            <div>
+              <h2 className="text-2xl font-heading font-medium text-gray-900 mb-4">Beyond the Classroom</h2>
+              <p className="text-gray-500 font-light leading-relaxed">
+                Powered by a dedicated team, the studio offers multiple dance styles, workshops, and experiences for dancers and creators of all levels. Beyond the classroom, NKD Studios brings dance to life across the UAE through spectacular events, wedding choreographies, sangeets, corporate shows, stage performances, brand activations, and private celebrations.
               </p>
             </div>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="relative h-[600px] rounded-3xl overflow-hidden shadow-lg border border-gray-200"
-          >
-            <img src="https://images.unsplash.com/photo-1547153760-18fc86324498?auto=format&fit=crop&w=1200&q=80" alt="NKD Community" className="w-full h-full object-cover" />
-            <div className="absolute inset-0 bg-nkd-dark/10"></div>
+            
+            <div>
+              <h2 className="text-2xl font-heading font-medium text-gray-900 mb-4">Dance is for Everyone</h2>
+              <p className="text-gray-500 font-light leading-relaxed">
+                From intimate family functions to large-scale productions, we create unforgettable experiences that blend entertainment, creativity, and storytelling. At NKD Studios, we believe dance is for everyone. Our space is designed not only to train dancers but also to inspire creators, performers, and artists to express themselves with confidence.
+              </p>
+            </div>
+            
+            <div className="pt-6 border-t border-gray-100">
+              <p className="text-gray-600 italic font-light">
+                "With a vision to become one of the biggest dance and creative communities in the UAE, we aim to connect people through movement and bring together artists and dance forms from around the world under one roof."
+              </p>
+            </div>
           </motion.div>
         </div>
       </section>
 
-      {/* Milestones Timeline */}
-      <section className="bg-nkd-offwhite py-24 section-container border-y border-gray-200">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-lg md:text-3xl font-heading font-bold uppercase text-center mb-16 text-nkd-white">The <span className="text-nkd-purple">Journey</span></h2>
-          
-          <div className="space-y-12 relative">
-            {/* Timeline Vertical Line */}
-            <div className="absolute left-6 md:left-1/2 top-0 bottom-0 w-1 bg-gray-300 transform md:-translate-x-1/2"></div>
-            
-            {milestones.map((m, idx) => (
+      {/* 3. Meet the Team (Full Bios) */}
+      <section className="py-24 bg-gray-50 px-6 md:px-12">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-20">
+            <h2 className="text-3xl md:text-5xl font-heading font-light text-gray-900 mb-6">Meet the <span className="font-medium text-nkd-purple">Team</span></h2>
+            <p className="text-gray-500 font-light text-lg">The passionate artists behind NKD Studios.</p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-20">
+            {team.map((member, idx) => (
               <motion.div 
                 key={idx}
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
-                className={`flex flex-col md:flex-row gap-8 items-center md:justify-between relative ${idx % 2 === 0 ? 'md:flex-row-reverse' : ''}`}
+                className="flex flex-col sm:flex-row gap-8 items-start group"
               >
-                {/* Timeline Dot */}
-                <div className="absolute left-6 md:left-1/2 w-5 h-5 bg-nkd-purple rounded-full transform -translate-x-1/2 mt-1 md:mt-0 shadow-md z-10"></div>
-                
-                {/* Content */}
-                <div className="w-full md:w-5/12 pl-16 md:pl-0">
-                  <div className={`bg-[#ffffff] p-8 rounded-3xl border border-gray-200 shadow-sm hover:border-nkd-purple/30 hover:shadow-md transition-all ${idx % 2 === 0 ? 'md:text-left' : 'md:text-right'}`}>
-                    <span className="text-nkd-purple font-bold text-xl mb-2 block">{m.year}</span>
-                    <h3 className="text-lg font-bold font-heading uppercase text-nkd-white mb-3">{m.title}</h3>
-                    <p className="text-gray-600">{m.desc}</p>
-                  </div>
+                <div className="w-full sm:w-2/5 aspect-[4/5] shrink-0 rounded-2xl overflow-hidden bg-white shadow-sm group-hover:shadow-lg transition-shadow duration-300">
+                  <img src={member.image} alt={member.name} className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" />
                 </div>
-                <div className="hidden md:block w-5/12"></div>
+                <div className="w-full sm:w-3/5 pt-2">
+                  <h3 className="text-2xl font-heading font-medium text-gray-900 mb-1">{member.name}</h3>
+                  <p className="text-nkd-purple text-sm font-semibold tracking-wide uppercase mb-4">{member.role}</p>
+                  <p className="text-gray-500 font-light leading-relaxed text-sm">{member.bio}</p>
+                </div>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Meet the Team Carousel */}
-      <section className="py-16 bg-[#f0efef] px-6 md:px-12 lg:px-24 mx-4 md:mx-8 lg:mx-12 rounded-[2.5rem] md:rounded-[3rem] my-10 overflow-hidden">
-        <div className="max-w-[1920px] mx-auto">
-          <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-10 gap-4">
-            <motion.h2 
-              className="text-3xl md:text-5xl font-bold uppercase text-[#1e1e1e]"
-              style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-            >
-              MEET THE <br className="hidden md:block" /><span className="text-[#813f98]">TEAM</span>
-            </motion.h2>
-            <p className="text-gray-500 max-w-sm text-sm font-body">Our talented instructors and staff are here to help you express yourself and achieve your dance goals.</p>
-          </div>
-
-          <div ref={teamScrollRef} className="flex overflow-x-auto pb-10 gap-6 md:gap-8 snap-x hide-scrollbar">
-            {team.map((member, idx) => {
-              const theme = cardThemes[idx % cardThemes.length];
-              return <HomeTeamCard key={member.id} member={member} theme={theme} idx={idx} />;
-            })}
+      {/* 4. Milestones & Achievements */}
+      <section className="py-32 px-6 md:px-12 max-w-5xl mx-auto text-center border-t border-gray-100">
+        <h2 className="text-3xl md:text-5xl font-heading font-light text-gray-900 mb-16">Studio <span className="font-medium text-nkd-purple">Milestones</span></h2>
+        
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+          <div className="p-8 rounded-3xl bg-white border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
+            <h3 className="text-5xl font-heading font-light text-nkd-purple mb-4">150+</h3>
+            <p className="text-gray-600 font-medium mb-3">Weddings & Sangeets</p>
+            <p className="text-gray-400 font-light text-sm">Choreographed creating unforgettable moments for families across the UAE and beyond.</p>
           </div>
           
-          <div className="flex justify-end gap-3 mt-4 pr-4">
-            <button onClick={() => scrollCarousel('left')} className="w-12 h-12 rounded-full border-2 border-[#1e1e1e] flex items-center justify-center text-[#1e1e1e] hover:bg-[#1e1e1e] hover:text-white transition-colors bg-transparent"><svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7"></path></svg></button>
-            <button onClick={() => scrollCarousel('right')} className="w-12 h-12 rounded-full border-2 border-[#1e1e1e] flex items-center justify-center text-[#1e1e1e] hover:bg-[#1e1e1e] hover:text-white transition-colors bg-transparent"><svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"></path></svg></button>
+          <div className="p-8 rounded-3xl bg-white border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
+            <h3 className="text-5xl font-heading font-light text-nkd-purple mb-4">Top</h3>
+            <p className="text-gray-600 font-medium mb-3">Global Brands</p>
+            <p className="text-gray-400 font-light text-sm">Collaborated with Pepsi, Samsung, Papa Johns, Sharaf DG, Jashanmal, and more.</p>
+          </div>
+          
+          <div className="p-8 rounded-3xl bg-white border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
+            <h3 className="text-5xl font-heading font-light text-nkd-purple mb-4">10+</h3>
+            <p className="text-gray-600 font-medium mb-3">Showcases & Events</p>
+            <p className="text-gray-400 font-light text-sm">Hosted our own showcases, spotlighting the incredible talent of our community.</p>
           </div>
         </div>
       </section>

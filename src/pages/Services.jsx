@@ -42,37 +42,45 @@ export default function Services() {
   ];
 
   return (
-    <div className="bg-nkd-dark min-h-screen text-nkd-white pb-24">
+    <div className="bg-white min-h-screen text-gray-900 pb-24 font-body overflow-hidden">
       
       {/* Hero Section */}
-      <section className="bg-nkd-dark pt-20 pb-16 section-container text-center border-b border-gray-200">
+      <section className="relative pt-32 pb-24 px-6 md:px-12 flex flex-col items-center justify-center text-center overflow-hidden min-h-[40vh]">
+        <div className="absolute inset-0 z-0">
+          <div className="absolute inset-0 bg-black/60 z-10"></div>
+          <img 
+            src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=1920&q=80" 
+            alt="Services Hero" 
+            className="w-full h-full object-cover grayscale mix-blend-overlay"
+          />
+        </div>
         <motion.div
+          className="relative z-20 max-w-3xl mx-auto"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <h1 className="text-lg md:text-5xl font-heading font-bold uppercase mb-4">Our <span className="text-nkd-purple">Services</span></h1>
-          <div className="w-24 h-1 bg-nkd-purple mx-auto mb-8"></div>
-          <p className="text-gray-600 max-w-2xl mx-auto text-lg">Beyond our daily classes, NKD Studios offers a range of premium services to elevate your events and creative projects.</p>
+          <h1 className="text-4xl md:text-6xl font-heading font-light text-white uppercase mb-6 tracking-tight">Our <span className="font-semibold text-nkd-purple">Services</span></h1>
+          <p className="text-gray-200 text-lg font-light leading-relaxed">Beyond our daily classes, NKD Studios offers a range of premium services to elevate your events and creative projects.</p>
         </motion.div>
       </section>
 
       {/* Alternating Service Sections */}
-      <div className="max-w-[1920px] mx-auto space-y-0">
+      <div className="space-y-0">
         {services.map((service, idx) => (
-          <section key={service.id} className={`py-20 section-container ${idx % 2 !== 0 ? 'bg-nkd-offwhite' : 'bg-nkd-dark border-b border-gray-100'}`}>
-            <div className={`max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-center ${idx % 2 !== 0 ? '' : 'lg:flex-row-reverse'}`}>
+          <section key={service.id} className={`py-24 px-6 md:px-12 ${idx % 2 !== 0 ? 'bg-gray-50' : 'bg-white border-b border-gray-100'}`}>
+            <div className={`max-w-7xl mx-auto flex flex-col lg:flex-row gap-12 lg:gap-24 items-center ${idx % 2 !== 0 ? '' : 'lg:flex-row-reverse'}`}>
               
               {/* Image */}
               <motion.div
-                initial={{ opacity: 0, x: idx % 2 === 0 ? -50 : 50 }}
+                initial={{ opacity: 0, x: idx % 2 === 0 ? -30 : 30 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8 }}
-                className={`relative h-[400px] md:h-[500px] rounded-3xl overflow-hidden shadow-xl border border-gray-200 ${idx % 2 !== 0 ? 'lg:order-2' : ''}`}
+                className={`w-full lg:w-1/2 relative h-[400px] md:h-[500px] rounded-[2.5rem] overflow-hidden shadow-sm border border-gray-100 group ${idx % 2 !== 0 ? 'lg:order-2' : ''}`}
               >
-                <img src={service.img} alt={service.title} className="w-full h-full object-cover" />
-                <div className="absolute inset-0 bg-nkd-dark/5"></div>
+                <img src={service.img} alt={service.title} className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105" />
+                <div className="absolute inset-0 bg-white/5"></div>
               </motion.div>
 
               {/* Content */}
@@ -81,22 +89,22 @@ export default function Services() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, delay: 0.2 }}
-                className={`${idx % 2 !== 0 ? 'lg:order-1' : ''}`}
+                className={`w-full lg:w-1/2 ${idx % 2 !== 0 ? 'lg:order-1' : ''}`}
               >
-                <h4 className="text-nkd-purple font-bold uppercase tracking-widest mb-2">{service.subtitle}</h4>
-                <h2 className="text-lg md:text-4xl font-heading font-bold uppercase mb-6 text-nkd-white">{service.title}</h2>
-                <p className="text-gray-600 text-lg leading-relaxed mb-8">{service.desc}</p>
+                <h4 className="text-nkd-purple font-semibold uppercase tracking-widest text-sm mb-3">{service.subtitle}</h4>
+                <h2 className="text-3xl md:text-4xl font-heading font-medium mb-6 text-gray-900">{service.title}</h2>
+                <p className="text-gray-500 font-light text-lg leading-relaxed mb-8">{service.desc}</p>
                 
                 <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
                   {service.features.map((feature, i) => (
-                    <li key={i} className="flex items-center gap-3 text-nkd-white font-medium">
-                      <div className="w-2 h-2 bg-nkd-purple rounded-full"></div>
+                    <li key={i} className="flex items-center gap-3 text-gray-700 font-medium text-sm">
+                      <div className="w-1.5 h-1.5 bg-nkd-purple rounded-full shrink-0"></div>
                       {feature}
                     </li>
                   ))}
                 </ul>
 
-                <Link to={service.link} className="inline-block border-2 border-nkd-purple text-nkd-purple hover:bg-nkd-purple hover:text-[#ffffff] px-8 py-4 rounded-full font-bold uppercase tracking-wider transition-all">
+                <Link to={service.link} className="inline-flex items-center justify-center bg-nkd-purple text-white hover:bg-nkd-deep px-8 py-3.5 rounded-full font-medium tracking-wide transition-all shadow-sm">
                   Inquire Now
                 </Link>
               </motion.div>
