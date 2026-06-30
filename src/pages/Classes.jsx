@@ -150,7 +150,7 @@ export default function Classes() {
         </div>
 
         {/* IN-PERSON BATCHES */}
-        <div className="mb-20">
+        <div className="mb-10 md:mb-20">
           <div className="flex items-center gap-3 mb-8">
             <MapPin className="text-nkd-purple w-6 h-6" />
             <h2 className="text-3xl font-heading font-light text-gray-900 uppercase">In-Studio <span className="font-medium">Batches</span></h2>
@@ -199,7 +199,7 @@ export default function Classes() {
               </AnimatePresence>
             </motion.div>
           ) : (
-            <div className="text-center py-20 bg-gray-50 rounded-3xl border border-dashed border-gray-200">
+            <div className="text-center py-10 md:py-20 bg-gray-50 rounded-3xl border border-dashed border-gray-200">
               <p className="text-gray-500 font-light">No in-studio classes found for these filters.</p>
             </div>
           )}
@@ -261,7 +261,7 @@ export default function Classes() {
               </AnimatePresence>
             </motion.div>
           ) : (
-            <div className="text-center py-20 bg-gray-50 rounded-3xl border border-dashed border-gray-200">
+            <div className="text-center py-10 md:py-20 bg-gray-50 rounded-3xl border border-dashed border-gray-200">
               <p className="text-gray-500 font-light">No online classes found for these filters.</p>
             </div>
           )}

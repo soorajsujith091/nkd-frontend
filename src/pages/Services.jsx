@@ -68,7 +68,7 @@ export default function Services() {
       {/* Alternating Service Sections */}
       <div className="space-y-0">
         {services.map((service, idx) => (
-          <section key={service.id} className={`py-24 px-6 md:px-12 ${idx % 2 !== 0 ? 'bg-gray-50' : 'bg-white border-b border-gray-100'}`}>
+          <section key={service.id} className={`py-12 md:py-24 px-6 md:px-12 ${idx % 2 !== 0 ? 'bg-gray-50' : 'bg-white border-b border-gray-100'}`}>
             <div className={`max-w-7xl mx-auto flex flex-col lg:flex-row gap-12 lg:gap-24 items-center ${idx % 2 !== 0 ? '' : 'lg:flex-row-reverse'}`}>
               
               {/* Image */}

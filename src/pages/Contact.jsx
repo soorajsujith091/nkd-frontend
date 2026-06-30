@@ -50,7 +50,7 @@ export default function Contact() {
       </section>
 
       {/* Info Cards Section */}
-      <section className="px-6 md:px-12 max-w-7xl mx-auto mb-20">
+      <section className="px-6 md:px-12 max-w-7xl mx-auto mb-10 md:mb-20">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {[
             { icon: <MapPin className="w-6 h-6" />, title: "Location", desc: "Mandarin Building, Office 118, Oud Metha, Dubai, UAE" },

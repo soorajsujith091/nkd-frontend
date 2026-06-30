@@ -35,7 +35,7 @@ export default function About() {
 
       {/* 2. Story Grid */}
       <section className="py-12 px-6 md:px-12 max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-32">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-16 md:mb-32">
           <motion.div 
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -77,9 +77,9 @@ export default function About() {
       </section>
 
       {/* 3. Meet the Team (Full Bios) */}
-      <section className="py-24 bg-gray-50 px-6 md:px-12">
+      <section className="py-12 md:py-24 bg-gray-50 px-6 md:px-12">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-20">
+          <div className="text-center mb-10 md:mb-20">
             <h2 className="text-3xl md:text-5xl font-heading font-light text-gray-900 mb-6">Meet the <span className="font-medium text-nkd-purple">Team</span></h2>
             <p className="text-gray-500 font-light text-lg">The passionate artists behind NKD Studios.</p>
           </div>
@@ -109,7 +109,7 @@ export default function About() {
       </section>
 
       {/* 4. Milestones & Achievements */}
-      <section className="py-32 px-6 md:px-12 max-w-5xl mx-auto text-center border-t border-gray-100">
+      <section className="py-16 md:py-32 px-6 md:px-12 max-w-5xl mx-auto text-center border-t border-gray-100">
         <h2 className="text-3xl md:text-5xl font-heading font-light text-gray-900 mb-16">Studio <span className="font-medium text-nkd-purple">Milestones</span></h2>
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">

@@ -70,7 +70,7 @@ export default function Gallery() {
       </section>
 
       {/* Masonry Grid */}
-      <section className="max-w-7xl mx-auto px-6 md:px-12 mb-24">
+      <section className="max-w-7xl mx-auto px-6 md:px-12 mb-12 md:mb-24">
         <motion.div layout className="columns-1 sm:columns-2 lg:columns-3 gap-6 space-y-6">
           <AnimatePresence>
             {filteredItems.map((item) => (
@@ -93,7 +93,7 @@ export default function Gallery() {
       </section>
 
       {/* Video Section */}
-      <section className="bg-gray-50 py-24 px-6 md:px-12 border-y border-gray-100">
+      <section className="bg-gray-50 py-12 md:py-24 px-6 md:px-12 border-y border-gray-100">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-heading font-light text-center mb-16 text-gray-900">Featured <span className="font-medium text-nkd-purple">Videos</span></h2>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">

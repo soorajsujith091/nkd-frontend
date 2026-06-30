@@ -55,7 +55,7 @@ export default function Home() {
     <div className="bg-white min-h-screen text-gray-900 font-body overflow-hidden">
       
       {/* 1. Minimalist Hero Banner */}
-      <section className="relative h-[90vh] flex flex-col items-center justify-center text-center px-6 md:px-12 mt-4 mx-4 md:mx-8 mb-24 rounded-3xl overflow-hidden bg-gray-50">
+      <section className="relative h-[90vh] flex flex-col items-center justify-center text-center px-6 md:px-12 mt-4 mx-4 md:mx-8 mb-12 md:mb-24 rounded-3xl overflow-hidden bg-gray-50">
         <div className="absolute inset-0 z-0">
           <img 
             src="https://images.unsplash.com/photo-1547153760-18fc86324498?auto=format&fit=crop&w=1920&q=80" 
@@ -87,7 +87,7 @@ export default function Home() {
       </section>
 
       {/* 2. NKD Batches Preview */}
-      <section className="py-24 px-6 md:px-12 max-w-7xl mx-auto">
+      <section className="py-12 md:py-24 px-6 md:px-12 max-w-7xl mx-auto">
         <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
           <div>
             <h2 className="text-3xl md:text-5xl font-heading font-light text-gray-900 mb-4">In-Studio <span className="font-medium text-nkd-purple">Batches</span></h2>
@@ -132,9 +132,9 @@ export default function Home() {
       </section>
 
       {/* 3. Online Classes */}
-      <section className="py-32 bg-gray-50">
+      <section className="py-16 md:py-32 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
-          <div className="text-center mb-20">
+          <div className="text-center mb-10 md:mb-20">
             <h2 className="text-3xl md:text-5xl font-heading font-light text-gray-900 mb-6">Online <span className="font-medium text-nkd-purple">Schedule 2026</span></h2>
             <p className="text-gray-500 font-light max-w-2xl mx-auto text-lg">Dance from anywhere. Instant Zoom access upon booking.</p>
           </div>
@@ -176,7 +176,7 @@ export default function Home() {
       </section>
 
       {/* 4. Brand Collaborations */}
-      <section className="py-20 border-y border-gray-100 overflow-hidden bg-white">
+      <section className="py-10 md:py-20 border-y border-gray-100 overflow-hidden bg-white">
         <p className="text-center text-xs font-semibold uppercase tracking-widest text-gray-400 mb-10">Trusted By Global Brands</p>
         <div className="relative flex overflow-x-hidden opacity-60 hover:opacity-100 transition-opacity">
           <motion.div 
@@ -194,8 +194,8 @@ export default function Home() {
       </section>
 
       {/* 5. Services */}
-      <section className="py-32 px-6 md:px-12 max-w-7xl mx-auto">
-        <h2 className="text-3xl md:text-5xl font-heading font-light text-center mb-20 text-gray-900">Our <span className="font-medium text-nkd-purple">Services</span></h2>
+      <section className="py-16 md:py-32 px-6 md:px-12 max-w-7xl mx-auto">
+        <h2 className="text-3xl md:text-5xl font-heading font-light text-center mb-10 md:mb-20 text-gray-900">Our <span className="font-medium text-nkd-purple">Services</span></h2>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           {[
@@ -216,9 +216,9 @@ export default function Home() {
       </section>
 
       {/* 6. Meet the Team */}
-      <section className="py-32 bg-gray-50 px-6 md:px-12">
+      <section className="py-16 md:py-32 bg-gray-50 px-6 md:px-12">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-20">
+          <div className="text-center mb-10 md:mb-20">
             <h2 className="text-3xl md:text-5xl font-heading font-light text-gray-900 mb-6">Meet the <span className="font-medium text-nkd-purple">Team</span></h2>
             <p className="text-gray-500 font-light text-lg">The passionate artists behind NKD Studios.</p>
           </div>
@@ -240,14 +240,14 @@ export default function Home() {
       </section>
 
       {/* 6.5 Testimonials */}
-      <section className="py-32 px-6 md:px-12 max-w-7xl mx-auto">
+      <section className="py-16 md:py-32 px-6 md:px-12 max-w-7xl mx-auto">
         <h2 className="text-3xl md:text-5xl font-heading font-light text-center mb-4 text-gray-900">What Our <span className="font-medium text-nkd-purple">Students Say</span></h2>
         <p className="text-center text-gray-500 font-light text-lg mb-16">Hear from our community of dancers.</p>
         <TestimonialsEditorial />
       </section>
 
       {/* 7. FAQs */}
-      <section className="py-32 px-6 md:px-12 max-w-4xl mx-auto">
+      <section className="py-16 md:py-32 px-6 md:px-12 max-w-4xl mx-auto">
         <h2 className="text-3xl md:text-5xl font-heading font-light text-center mb-16 text-gray-900">Frequently Asked <span className="font-medium text-nkd-purple">Questions</span></h2>
         
         <div className="space-y-4">
